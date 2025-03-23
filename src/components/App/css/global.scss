@@ -1,0 +1,53 @@
+@use './variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
+
+:root {
+	// Стандартный размер шрифта в браузере 16 пикселей.
+	// Поэтому 10 пикселей будет 62.5%.
+	// Размер в процентах указывается для слабовидящих у которых в браузере стоит увеличенный шрифт.
+	font-size: 62.5%;
+
+}
+
+*:not(svg, g, path) {
+	all: unset;
+	display: revert;
+    list-style: none;
+
+	strong, b {
+		font-weight: 600;
+	}
+
+	&:focus {
+		outline: 1px solid $blueColor-2;
+	}
+}
+
+html, body {
+	scrollbar-gutter: auto;
+}
+
+body {
+	font-family: "Commissioner", sans-serif;
+	font-optical-sizing: auto;
+	font-size: 1.7rem;
+	line-height: 2.4rem;
+	font-weight: 390;
+	color: $textColor;
+	font-variation-settings:
+			"slnt" 0,
+			"FLAR" 0,
+			"VOLM" 0;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+	display: flex;
+	height: 100vh;
+}
+
+a {
+	cursor: pointer;
+}
