@@ -1,4 +1,6 @@
 .site-panel {
 	display: flex;
-	padding: 1rem;
+	box-sizing: border-box;
+	overflow: auto;
+	padding: 2rem;
 }

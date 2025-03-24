@@ -1,5 +1,4 @@
 @use './variables.scss' as *;
-@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 
 :root {
 	// Стандартный размер шрифта в браузере 16 пикселей.
@@ -28,10 +27,10 @@ html, body {
 }
 
 body {
-	font-family: "Commissioner", sans-serif;
+	font-family: Arial, sans-serif;
 	font-optical-sizing: auto;
-	font-size: 1.7rem;
-	line-height: 2.4rem;
+	font-size: 1.6rem;
+	line-height: 2.6rem;
 	font-weight: 390;
 	color: $textColor;
 	font-variation-settings:

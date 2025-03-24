@@ -1,0 +1,31 @@
+.topic--list-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.topic--list-item__buttons {
+	display: flex;
+	gap: .4rem;
+}
+
+.topic--list-item__text-button {
+	flex-grow: 1;
+	cursor: pointer;
+	padding: 0.2rem 1rem;
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 5px;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+
+.topic--list-item__text-button--selected {
+	background-color: #dae6d3;
+
+	&:hover {
+		background-color: #dae6d3;
+	}
+}

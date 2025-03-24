@@ -1,5 +1,7 @@
-import BigTextarea from '../common/BigTextarea/BigTextarea.tsx'
+import SelectedTopicPanel from '../SelectedTopicPanel/SelectedTopicPanel.tsx'
 import SitePanel from '../SitePanel/SitePanel.tsx'
+import TopicsPanel from '../topicsPanel/TopicsPanel/TopicsPanel.tsx'
+import UnsortedSentencesPanel from '../UnsortedSentencesPanel/UnsortedSentencesPanel.tsx'
 import './css/global.scss'
 import './css/app.scss'
 
@@ -7,13 +9,13 @@ function App() {
 	return (
 		<div className='app'>
 			<SitePanel>
-				<BigTextarea value='3333' />
+				<UnsortedSentencesPanel />
 			</SitePanel>
 			<SitePanel>
-				<p>2</p>
+				<TopicsPanel />
 			</SitePanel>
 			<SitePanel>
-				<BigTextarea value='5555' />
+				<SelectedTopicPanel />
 			</SitePanel>
 		</div>
 	)
