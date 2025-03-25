@@ -28,3 +28,9 @@ export function useGetOnTopicNameClick(topicIndex: number) {
 		sentencesLogic.selectTopic(topicIndex)
 	}, [])
 }
+
+export function useGetMoveTopic(topicIndex: number, direction: 'up' | 'down') {
+	return useCallback(function () {
+		sentencesLogic.moveTopic(topicIndex, direction)
+	}, [])
+}

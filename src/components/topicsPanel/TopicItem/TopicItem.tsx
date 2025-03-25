@@ -4,7 +4,12 @@ import { EditOutlined, ArrowUpOutlined, ArrowDownOutlined, CheckOutlined } from 
 import cn from 'classnames'
 import { useSentencesStore } from '../../../sentencesData/sentencesStore.ts'
 import { Topic } from '../../../sentencesData/sentencesTypes.ts'
-import { useGetToggleMakeTopicName, useGetOnTopicNameChange, useGetOnTopicNameClick } from './fn/editTopicItem.ts'
+import {
+	useGetToggleMakeTopicName,
+	useGetOnTopicNameChange,
+	useGetOnTopicNameClick,
+	useGetMoveTopic,
+} from './fn/editTopicItem.ts'
 import './TopicItem.scss'
 
 const { Text } = Typography
@@ -21,8 +26,8 @@ function TopicItem(props: TopicItemProps) {
 			<TopicItemName topicData={topicData} />
 			<div className='topic--list-item__buttons'>
 				<EditNameButton topicData={topicData} />
-				<Button icon={<ArrowUpOutlined />} />
-				<Button icon={<ArrowDownOutlined />} />
+				<MoveUpButton topicData={topicData} />
+				<MoveDownButton topicData={topicData} />
 			</div>
 		</div>
 	)
@@ -64,4 +69,20 @@ function EditNameButton(props: TopicItemProps) {
 	) : (
 		<Button icon={<EditOutlined onClick={toggleTopicNameEditing} />} />
 	)
+}
+
+function MoveUpButton(props: TopicItemProps) {
+	const { topicData } = props
+
+	const toggleTopicNameEditing = useGetMoveTopic(topicData.index, 'up')
+
+	return <Button icon={<ArrowUpOutlined />} onClick={toggleTopicNameEditing} />
+}
+
+function MoveDownButton(props: TopicItemProps) {
+	const { topicData } = props
+
+	const toggleTopicNameEditing = useGetMoveTopic(topicData.index, 'down')
+
+	return <Button icon={<ArrowDownOutlined />} onClick={toggleTopicNameEditing} />
 }

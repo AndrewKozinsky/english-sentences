@@ -1,3 +1,4 @@
+import { moveElementInArray } from '../utils/array.ts'
 import { useSentencesStore } from './sentencesStore.ts'
 import { Topic } from './sentencesTypes.ts'
 
@@ -62,5 +63,15 @@ export const sentencesLogic = {
 		const topics = useSentencesStore((s) => s.topics)
 
 		return topics.find((topic) => topic.index === selectedTopicIndex)
+	},
+	moveTopic(topicIndex: number, direction: 'up' | 'down') {
+		const allTopicsCopy = [...useSentencesStore.getState().topics]
+
+		const topicIdx = allTopicsCopy.findIndex((topic) => topic.index === topicIndex)
+		const newTopicIdx = direction === 'up' ? topicIdx - 1 : topicIdx + 1
+
+		moveElementInArray(allTopicsCopy, topicIdx, newTopicIdx)
+
+		useSentencesStore.getState().setTopics(allTopicsCopy)
 	},
 }
