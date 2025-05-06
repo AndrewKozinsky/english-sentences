@@ -34,3 +34,13 @@ export function useGetMoveTopic(topicIndex: number, direction: 'up' | 'down') {
 		sentencesLogic.moveTopic(topicIndex, direction)
 	}, [])
 }
+
+export function useGetDeleteTopic(topicIndex: number) {
+	return useCallback(function () {
+		const answer = confirm('Удалить тему?')
+
+		if (answer) {
+			sentencesLogic.deleteTopic(topicIndex)
+		}
+	}, [])
+}

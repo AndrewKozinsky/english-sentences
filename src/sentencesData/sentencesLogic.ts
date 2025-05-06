@@ -74,4 +74,15 @@ export const sentencesLogic = {
 
 		useSentencesStore.getState().setTopics(allTopicsCopy)
 	},
+	deleteTopic(topicIndex: number) {
+		const allTopicsCopy = [...useSentencesStore.getState().topics]
+
+		allTopicsCopy.splice(topicIndex, 1)
+
+		allTopicsCopy.forEach((topic, i) => {
+			topic.index = i
+		})
+
+		useSentencesStore.getState().setTopics(allTopicsCopy)
+	},
 }

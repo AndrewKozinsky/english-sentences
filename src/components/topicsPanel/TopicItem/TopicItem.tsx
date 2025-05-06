@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Input, Typography } from 'antd'
-import { EditOutlined, ArrowUpOutlined, ArrowDownOutlined, CheckOutlined } from '@ant-design/icons'
+import { EditOutlined, ArrowUpOutlined, ArrowDownOutlined, CheckOutlined, DeleteOutlined } from '@ant-design/icons'
 import cn from 'classnames'
 import { useSentencesStore } from '../../../sentencesData/sentencesStore.ts'
 import { Topic } from '../../../sentencesData/sentencesTypes.ts'
@@ -9,6 +9,7 @@ import {
 	useGetOnTopicNameChange,
 	useGetOnTopicNameClick,
 	useGetMoveTopic,
+	useGetDeleteTopic,
 } from './fn/editTopicItem.ts'
 import './TopicItem.scss'
 
@@ -28,6 +29,7 @@ function TopicItem(props: TopicItemProps) {
 				<EditNameButton topicData={topicData} />
 				<MoveUpButton topicData={topicData} />
 				<MoveDownButton topicData={topicData} />
+				<DeleteButton topicData={topicData} />
 			</div>
 		</div>
 	)
@@ -74,15 +76,23 @@ function EditNameButton(props: TopicItemProps) {
 function MoveUpButton(props: TopicItemProps) {
 	const { topicData } = props
 
-	const toggleTopicNameEditing = useGetMoveTopic(topicData.index, 'up')
+	const moveTopic = useGetMoveTopic(topicData.index, 'up')
 
-	return <Button icon={<ArrowUpOutlined />} onClick={toggleTopicNameEditing} />
+	return <Button icon={<ArrowUpOutlined />} onClick={moveTopic} />
 }
 
 function MoveDownButton(props: TopicItemProps) {
 	const { topicData } = props
 
-	const toggleTopicNameEditing = useGetMoveTopic(topicData.index, 'down')
+	const moveTopic = useGetMoveTopic(topicData.index, 'down')
 
-	return <Button icon={<ArrowDownOutlined />} onClick={toggleTopicNameEditing} />
+	return <Button icon={<ArrowDownOutlined />} onClick={moveTopic} />
+}
+
+function DeleteButton(props: TopicItemProps) {
+	const { topicData } = props
+
+	const deleteTopic = useGetDeleteTopic(topicData.index)
+
+	return <Button icon={<DeleteOutlined />} onClick={deleteTopic} />
 }
