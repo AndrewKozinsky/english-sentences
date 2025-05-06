@@ -7,8 +7,8 @@ services:
     volumes:
       - ./nginx/nginx.conf.server:/etc/nginx/nginx.conf
     environment:
-      VIRTUAL_HOST: sentences.explainit.ru,www.sentences.explainit.ru
-      LETSENCRYPT_HOST: sentences.explainit.ru,www.sentences.explainit.ru
+      VIRTUAL_HOST: sentences.explainit.ru
+      LETSENCRYPT_HOST: sentences.explainit.ru
 
   face:
     build:
