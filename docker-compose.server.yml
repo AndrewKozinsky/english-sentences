@@ -4,8 +4,6 @@ services:
     container_name: english-sentences-nginx
     depends_on:
       - face
-    ports:
-      - 80:80
     volumes:
       - ./nginx/nginx.conf.server:/etc/nginx/nginx.conf
 #    environment:
