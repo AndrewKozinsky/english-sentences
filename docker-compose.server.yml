@@ -8,9 +8,9 @@ services:
       - 80:80
     volumes:
       - ./nginx/nginx.conf.server:/etc/nginx/nginx.conf
-    #environment:
-      #VIRTUAL_HOST: sentences.explainit.ru,www.sentences.explainit.ru
-      #LETSENCRYPT_HOST: sentences.explainit.ru,www.sentences.explainit.ru
+    environment:
+      VIRTUAL_HOST: sentences.explainit.ru,www.sentences.explainit.ru
+      LETSENCRYPT_HOST: sentences.explainit.ru,www.sentences.explainit.ru
 
   face:
     build:
@@ -24,7 +24,7 @@ services:
       - 4173
     environment: {}
 
-#networks:
-#  default:
-#    external:
-#      name: nginx-proxy
+networks:
+  default:
+    external:
+      name: nginx-proxy
