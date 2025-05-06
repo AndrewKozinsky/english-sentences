@@ -19,4 +19,3 @@ services:
       - ./face/public:/app/public
     command: npm run dev
     container_name: english-sentences-face
-    environment: {}
