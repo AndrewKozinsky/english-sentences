@@ -1,0 +1,30 @@
+services:
+  nginx:
+    image: nginx:1.19.7-alpine
+    container_name: english-sentences-nginx
+    depends_on:
+      - face
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf.server:/etc/nginx/nginx.conf
+    #environment:
+      #VIRTUAL_HOST: sentences.explainit.ru,www.sentences.explainit.ru
+      #LETSENCRYPT_HOST: sentences.explainit.ru,www.sentences.explainit.ru
+
+  face:
+    build:
+      context: face/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    container_name: english-sentences-face
+    ports:
+      - 4173:4173
+    expose:
+      - 4173
+    environment: {}
+
+#networks:
+#  default:
+#    external:
+#      name: nginx-proxy
