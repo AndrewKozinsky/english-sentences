@@ -15,9 +15,8 @@ services:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    container_name: english-sentences-face
     command: npm run preview
-    environment: {}
+    container_name: english-sentences-face
 
 networks:
   default:
